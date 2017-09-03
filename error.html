@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>错误提示</title>
+	<meta charset="utf-8">
+<style type="text/css">
+	#footer{  
+			position: absolute;  bottom: 0; /* 关键 */  
+			left:0; /* IE下一定要记得 */  
+			height: 30px;         /* footer的高度一定要是固定值*/  
+			color :white;
+		}  
+	body  {
+		background-image:url("./image/background.jpg");	
+		z-index: -1;
+		background-repeat:no-repeat;
+		background-attachment:fixed;
+		background-size: cover;
+		width: 100%;
+		height: 100%;
+	}
+</style>
+</head>
+<body>
+	<center>
+	<br><br><br>
+	<font size="6">对不起，本站暂时不支持移动端访问</font>
+	
+	<p style="text-indent: 2em;magrn-top:30px">
+		<br><br><br>
+		系统将在 <span id="time">5</span> 秒钟后自动跳转至百度首页<br><br><br>如果未能跳转，<a href="http://www.baidu.com" title="点击访问">请点击</a>。
+	</p>
+	
+	</center>
+	
+	<div id="footer">
+		<center>
+			© 2017  齐齐哈尔大学魔方协会
+		</center>
+	</div>
+	
+	<script type="text/javascript">  
+		delayURL();   
+		function delayURL() {
+			var delay = document.getElementById("time").innerHTML;
+			var t = setTimeout("delayURL()", 1000);
+			if (delay > 0) {
+				delay--;
+				document.getElementById("time").innerHTML = delay;
+			} else {
+				clearTimeout(t); 
+				window.location.href = "http://www.baidu.com";
+			}       
+		}
+	</script>
+	
+</body>
+</html>
